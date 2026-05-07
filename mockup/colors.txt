@@ -1,0 +1,33 @@
+/* Paleta 3 – Energia */
+
+/* Główne */
+--color-accent:        #185FA5;   /* przycisk CTA */
+--color-accent-light:  #E6F1FB;   /* tło kart, inputy */
+--color-accent-mid:    #85B7EB;   /* bordery, divider */
+
+/* Cele */
+--color-deficyt:       #E24B4A;   /* deficyt – czerwony */
+--color-deficyt-bg:    #FCEBEB;
+--color-utrzymanie:    #185FA5;   /* utrzymanie – niebieski */
+--color-utrzymanie-bg: #E6F1FB;
+--color-masa:          #BA7517;   /* masa – bursztyn */
+--color-masa-bg:       #FAEEDA;
+
+/* Makroskładniki */
+--color-bialko:        #185FA5;   /* białko – niebieski */
+--color-bialko-bg:     #E6F1FB;
+--color-wegle:         #BA7517;   /* węgle – bursztyn */
+--color-wegle-bg:      #FAEEDA;
+--color-tluszcze:      #E24B4A;   /* tłuszcze – czerwony */
+--color-tluszcze-bg:   #FCEBEB;
+
+/* Tekst */
+--color-text-dark:     #042C53;
+--color-text-mid:      #0C447C;
+--color-text-muted:    #378ADD;
+
+/* Tło strony */
+--color-page-bg:       #F0F7FE;
+--color-card-bg:       #FFFFFF;
+
+Dark mode gotowy — ta sama struktura co jasna wersja, ale z głębokim granatowym tłem #0A1929, ciemnymi kartami #0F2337 i subtelnymi bordarami #1A3A5C.
