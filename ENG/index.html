@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calorie Calculator — calorie needs and macros</title>
+    <link rel="stylesheet" href="../Assets/CSS/main.css" />
+    <script src="../Assets/JS/main.js" type="module"></script>
+  </head>
+
+  <body>
+    <header></header>
+
+    <main>
+      <div class="main-container">
+        <div class="header">
+          <div class="logo-container">
+            <img class="logo" src="../Assets/IMG/logo.svg" />
+          </div>
+
+          <div class="header-text">
+            <h1>Calorie Calculator</h1>
+            <p>calculate your daily calorie needs</p>
+          </div>
+        </div>
+
+        <form>
+          <div class="form-header">
+            <img src="../Assets/IMG/osoba.svg" />
+            <h3>Your Data</h3>
+          </div>
+
+          <div class="div-row">
+            <!-- GENDER -->
+            <div class="input-containers1">
+              <label for="gender">
+                <img src="../Assets/IMG/plec.svg" />
+                Gender
+              </label>
+
+              <select id="gender" name="gender" required>
+                <option value="">-- Select --</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+
+            <!-- AGE -->
+            <div class="input-containers1">
+              <label for="age">
+                <img src="../Assets/IMG/wiek.svg" />
+                Age
+              </label>
+
+              <input
+                id="age"
+                name="age"
+                type="number"
+                placeholder="28 years"
+                min="10"
+                max="100"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="div-row">
+            <!-- HEIGHT -->
+            <div class="input-containers1">
+              <label for="height">
+                <img src="../Assets/IMG/wzrost.svg" />
+                Height
+              </label>
+
+              <input
+                id="height"
+                name="height"
+                type="number"
+                placeholder="180 cm"
+                min="100"
+                max="250"
+                required
+              />
+            </div>
+
+            <!-- WEIGHT -->
+            <div class="input-containers1">
+              <label for="weight">
+                <img src="../Assets/IMG/waga.svg" />
+                Weight
+              </label>
+
+              <input
+                id="weight"
+                name="weight"
+                type="number"
+                placeholder="82 kg"
+                min="30"
+                max="350"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="div-column">
+            <!-- ACTIVITY -->
+            <div class="input-containers2">
+              <label for="activity">
+                <img src="../Assets/IMG/aktywnosc.svg" />
+                Activity
+              </label>
+
+              <select id="activity" name="activity" required>
+                <option value="">-- Select --</option>
+
+                <option value="sedentary">
+                  Sedentary lifestyle (little or no exercise)
+                </option>
+
+                <option value="light">
+                  Light activity (1–3 days per week)
+                </option>
+
+                <option value="moderate">
+                  Moderate activity (3–5 days per week)
+                </option>
+
+                <option value="active">
+                  High activity (6–7 days per week)
+                </option>
+
+                <option value="very_active">
+                  Very high activity (intense workouts + physical job)
+                </option>
+              </select>
+            </div>
+
+            <!-- GOAL -->
+            <div class="input-containers2">
+              <label for="goal">
+                <img src="../Assets/IMG/cel.svg" />
+                Goal
+              </label>
+
+              <select id="goal" name="goal" required>
+                <option value="">-- Select --</option>
+
+                <option value="lose_weight">Fat loss (calorie deficit)</option>
+
+                <option value="maintain_weight">Weight maintenance</option>
+
+                <option value="gain_weight">Muscle gain (weight gain)</option>
+
+                <option value="recomposition">
+                  Recomposition (fat loss + muscle gain)
+                </option>
+              </select>
+            </div>
+
+            <div class="btn-container">
+              <button id="calculateBtn" type="submit">
+                <img src="../Assets/IMG/oblicz.svg" />
+                Calculate calorie needs
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <hr />
+
+        <div id="goToResults" class="results-container">
+          <div class="caloricalgoals-container">
+            <div class="caloricalgoals-header">
+              <img src="../Assets/IMG/wyniki.svg" />
+              <h3>Calorie Goals</h3>
+            </div>
+
+            <div class="cards1-container">
+              <div id="lose-card" class="cards1">
+                <span>
+                  <span id="deficitIcon-container">
+                    <img src="../Assets/IMG/deficyt.svg" />
+                  </span>
+                </span>
+
+                <span>Deficit</span>
+                <span id="deficit" class="big-text">No data</span>
+                <span>kcal / day</span>
+              </div>
+
+              <div id="maintain-card" class="cards1">
+                <span>
+                  <img src="../Assets/IMG/utrzymanie.svg" />
+                </span>
+
+                <span>Maintenance</span>
+                <span id="maintain" class="big-text">No data</span>
+                <span>kcal / day</span>
+              </div>
+
+              <div id="gain-card" class="cards1">
+                <span>
+                  <img src="../Assets/IMG/wzrost.svg" />
+                </span>
+
+                <span>Gain</span>
+                <span id="gain" class="big-text">No data</span>
+                <span>kcal / day</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="macroElements-container">
+            <div class="macroElements-header">
+              <img src="../Assets/IMG/makroskladniki.svg" />
+
+              <h3>
+                Macronutrients Goal:
+                <span id="goal-text">(no goal selected)</span>
+              </h3>
+            </div>
+
+            <div class="cards2-container">
+              <div id="proteins-card" class="cards2">
+                <span>
+                  <span id="proteinsIcon-container">
+                    <img src="../Assets/IMG/bialko.svg" />
+                  </span>
+
+                  Protein
+                </span>
+
+                <span id="proteinGrams" class="big-text">0g</span>
+                <span id="proteinKcalPerc">0 kcal · 0%</span>
+              </div>
+
+              <div id="carbs-card" class="cards2">
+                <span>
+                  <span id="carbsIcon-container">
+                    <img src="../Assets/IMG/weglowodany.svg" />
+                  </span>
+
+                  Carbs
+                </span>
+
+                <span id="carbGrams" class="big-text">0g</span>
+                <span id="carbKcalPerc">0 kcal · 0%</span>
+              </div>
+
+              <div id="fats-card" class="cards2">
+                <span>
+                  <span id="fatsIcon-container">
+                    <img src="../Assets/IMG/tluszcze.svg" />
+                  </span>
+
+                  Fats
+                </span>
+
+                <span id="fatGrams" class="big-text">0g</span>
+                <span id="fatKcalPerc">0 kcal · 0%</span>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="results-footer">
+            <ul>
+              <li>
+                <span class="footer-text">BMR:</span>
+                <span id="bmr">0</span>
+              </li>
+
+              <li>
+                <span class="footer-text">TDEE:</span>
+                <span id="tdee">0</span> kcal
+              </li>
+
+              <li>
+                <span class="footer-text">Formula:</span>
+                Mifflin-St Jeor
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

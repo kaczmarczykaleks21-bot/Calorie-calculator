@@ -1,5 +1,493 @@
+:root {
+  /* ═══ DEFICYT — czerwony ═══ */
+  --color-deficyt: #e24b4a; /* główny */
+  --color-deficyt-dark: #791f1f; /* tekst, liczby */
+  --color-deficyt-mid: #a32d2d; /* etykiety */
+  --color-deficyt-light: #f7c1c1; /* obramowanie, pasek */
+  --color-deficyt-bg: #fcebeb; /* tło karty */
+
+  /* ═══ UTRZYMANIE — niebieski ═══ */
+  --color-utrzymanie: #185fa5; /* główny */
+  --color-utrzymanie-dark: #042c53; /* tekst, liczby */
+  --color-utrzymanie-mid: #0c447c; /* etykiety */
+  --color-utrzymanie-light: #b5d4f4; /* obramowanie, pasek */
+  --color-utrzymanie-bg: #e6f1fb; /* tło karty */
+
+  /* ═══ MASA — bursztyn ═══ */
+  --color-masa: #ba7517; /* główny */
+  --color-masa-dark: #3d2200; /* tekst, liczby */
+  --color-masa-mid: #633806; /* etykiety */
+  --color-masa-light: #fac775; /* obramowanie, pasek */
+  --color-masa-bg: #faeeda; /* tło karty */
+
+  /* ═══ BIAŁKO — niebieski (ten sam co utrzymanie) ═══ */
+  --color-bialko: #185fa5;
+  --color-bialko-dark: #0c447c;
+  --color-bialko-mid: #378add;
+  --color-bialko-light: #b5d4f4;
+  --color-bialko-bg: #e6f1fb;
+
+  /* ═══ WĘGLOWODANY — bursztyn (ten sam co masa) ═══ */
+  --color-wegle: #ba7517;
+  --color-wegle-dark: #633806;
+  --color-wegle-mid: #854f0b;
+  --color-wegle-light: #fac775;
+  --color-wegle-bg: #faeeda;
+
+  /* ═══ TŁUSZCZE — czerwony (ten sam co deficyt) ═══ */
+  --color-tluszcze: #e24b4a;
+  --color-tluszcze-dark: #791f1f;
+  --color-tluszcze-mid: #a32d2d;
+  --color-tluszcze-light: #f7c1c1;
+  --color-tluszcze-bg: #fcebeb;
+
+  /* Tło strony */
+  --color-page-bg: #f0f7fe; /* jasny tryb */
+  --color-page-bg-dark: #0a1929; /* ciemny tryb */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-page-bg);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  flex: 1;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1em;
+
+  width: min(1100px, 100%);
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5em;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 3rem;
+  width: auto;
+  display: block;
+}
+
+.header-text h1,
+.header-text h2,
+.header-text h3,
+.header-text p {
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2em;
+  background-color: white;
+  border: var(--color-bialko-mid) 1px solid;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.div-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 1.5em;
+  width: 100%;
+}
+
+.div-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  width: 100%;
+}
+
+.input-containers1,
+.input-containers2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  width: 100%;
+}
+
+.input-containers2 {
+  grid-column: 1 / -1;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+button,
+.btns {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  background-color: #0c447c;
+  color: white;
+  transition: 0.3s;
+  border: 1px solid #0c447c;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 16px;
+}
+
+button:hover,
+.btns:hover {
+  background-color: #378add;
+  color: white;
+  cursor: pointer;
+}
+
+select,
+input {
+  background-color: var(--color-page-bg);
+  border: var(--color-bialko-mid) 1px solid;
+  border-radius: 10px;
+  padding: 6px;
+  width: 100%;
+}
+
+select:hover,
+input:hover {
+  cursor: pointer;
+}
+
+hr {
+  background-color: #185fa5;
+  color: #185fa5;
+  width: 100%;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  background-color: var(--color-card-bg);
+  border: var(--color-accent) 1px solid;
+  border-radius: 20px;
+  padding: 16px;
+  max-width: 900px;
+}
+
+.caloricalgoals-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.caloricalgoals-header,
+.macroElements-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#lose-card {
+  background-color: var(--color-deficyt-bg);
+  border: var(--color-deficyt-light) 1px solid;
+  color: var(--color-deficyt-mid);
+  border-radius: 12px;
+}
+
+#maintain-card {
+  background-color: var(--color-utrzymanie-bg);
+  border: var(--color-utrzymanie-light) 1px solid;
+  color: var(--color-utrzymanie-mid);
+  border-radius: 12px;
+}
+
+#gain-card {
+  background-color: var(--color-masa-bg);
+  border: var(--color-masa-light) 1px solid;
+  color: var(--color-masa-mid);
+  border-radius: 12px;
+}
+
+.microElements-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.microElements-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.cards1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4em;
+  flex: 1 1 calc(33.333% - 1em);
+  min-width: 220px;
+  padding: 10px;
+}
+
+.cards1-container,
+.cards2-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  width: 100%;
+}
+
+.cards2-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  width: 100%;
+  min-width: auto;
+}
+
+.cards2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.4em;
+  flex: 1 1 calc(33.333% - 1em);
+  min-width: 220px;
+  padding: 10px;
+}
+
+#goal-text {
+  color: var(--color-bialko-dark);
+}
+
+#proteins-card {
+  background-color: var(--color-bialko-bg);
+  color: var(--color-bialko);
+  border: var(--color-bialko) 1px solid;
+  border-radius: 12px;
+}
+
+#carbs-card {
+  background-color: var(--color-wegle-bg);
+  color: var(--color-wegle);
+  border: var(--color-wegle) 1px solid;
+  border-radius: 12px;
+}
+
+#fats-card {
+  background-color: var(--color-tluszcze-bg);
+  color: var(--color-wegle);
+  border: var(--color-tluszcze) 1px solid;
+  border-radius: 12px;
+}
+
+#proteinsIcon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bialko-light);
+  border: none;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+#carbsIcon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-wegle-light);
+  border: none;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+#fatsIcon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-tluszcze-light);
+  border: none;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.big-text {
+  font-size: 1.4rem;
+}
+
+.results-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+}
+
+li {
+  color: var(--color-text-dark);
+  font-weight: 550;
+}
+
+.footer-text {
+  color: var(--color-bialko-dark);
+  font-weight: 500;
+}
+
+h1,
+h2 {
+  color: var(--color-text-dark);
+  font-weight: 600;
+}
+
+h3 {
+  color: var(--color-text-mid);
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+label {
+  color: #185fa5;
+  font-weight: 400;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .cards1-container,
+  .cards2-container {
+    min-width: auto;
+  }
+
+  .main-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 0 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .big-text {
+    font-size: 1.2rem;
+  }
+
+  .cards1,
+  .cards2 {
+    padding: 12px;
+  }
 }
