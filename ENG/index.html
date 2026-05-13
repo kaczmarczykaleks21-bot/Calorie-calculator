@@ -3,40 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" />
+    <meta property="og:title" content="Calorie Calculator" />
+    <meta property="og:description" content="Calculate BMR and TDEE easily" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://twojadomena.pl/pl/" />
+    <link rel="canonical" href="https://twojadomena.pl/ENG/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="alternate" hreflang="pl" href="https://twojadomena.pl/PL/" />
+    <link rel="alternate" hreflang="en" href="https://twojadomena.pl/ENG/" />
     <title>Calorie Calculator — calorie needs and macros</title>
+    <script>
+      localStorage.setItem('lang', 'en');
+      (function () {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches;
+        document.documentElement.setAttribute(
+          'data-theme',
+          saved || (prefersDark ? 'dark' : 'light'),
+        );
+      })();
+    </script>
     <link rel="stylesheet" href="../Assets/CSS/main.css" />
     <script src="../Assets/JS/main.js" type="module"></script>
   </head>
-
   <body>
-    <header></header>
-
-    <main>
-      <div class="main-container">
-        <div class="header">
+    <header>
+      <div class="header-container">
+        <div class="website-logo">
           <div class="logo-container">
             <img class="logo" src="../Assets/IMG/logo.svg" />
           </div>
-
           <div class="header-text">
-            <h1>Calorie Calculator</h1>
-            <p>calculate your daily calorie needs</p>
+            <h1>Calorie calculator</h1>
+            <p>Mifflin-St Jeor · BMR · TDEE</p>
           </div>
         </div>
-
+        <div class="navbar">
+          <span class="changeLang-container">
+            <button id="polishBtn">PL</button>
+            <button id="englishBtn">ENG</button>
+          </span>
+          <span><button id="changeThemeBtn">Mode</button></span>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="main-container">
         <form>
           <div class="form-header">
             <img src="../Assets/IMG/osoba.svg" />
             <h3>Your Data</h3>
           </div>
-
           <div class="div-row">
             <!-- GENDER -->
             <div class="input-containers1">
@@ -44,21 +68,18 @@
                 <img src="../Assets/IMG/plec.svg" />
                 Gender
               </label>
-
               <select id="gender" name="gender" required>
                 <option value="">-- Select --</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
             </div>
-
             <!-- AGE -->
             <div class="input-containers1">
               <label for="age">
                 <img src="../Assets/IMG/wiek.svg" />
                 Age
               </label>
-
               <input
                 id="age"
                 name="age"
@@ -70,7 +91,6 @@
               />
             </div>
           </div>
-
           <div class="div-row">
             <!-- HEIGHT -->
             <div class="input-containers1">
@@ -292,6 +312,17 @@
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="footer-container">
+        <div class="watermark">
+          <p>© 2025 Calorie calculator · Wzór Mifflin-St Jeor</p>
+        </div>
+        <ul>
+          <li>Bez logowania</li>
+          <li>Open source</li>
+          <li>RODO</li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>

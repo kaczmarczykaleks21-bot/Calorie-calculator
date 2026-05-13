@@ -3,30 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" />
+    <meta property="og:title" content="Kalkulator kalorii – BMR i TDEE" />
+    <meta
+      property="og:description"
+      content="Oblicz swoje zapotrzebowanie kaloryczne, BMR i TDEE."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://twojadomena.pl/pl/" />
+    <link rel="canonical" href="https://twojadomena.pl/PL/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="alternate" hreflang="pl" href="https://twojadomena.pl/PL/" />
+    <link rel="alternate" hreflang="en" href="https://twojadomena.pl/ENG/" />
     <title>Kalkulator kalorii — zapotrzebowanie i makro</title>
+    <script>
+      localStorage.setItem('lang', 'pl');
+      (function () {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches;
+
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <link rel="stylesheet" href="../Assets/CSS/main.css" />
     <script src="../Assets/JS/main.js" type="module"></script>
   </head>
   <body>
-    <header></header>
-    <main>
-      <div class="main-container">
-        <div class="header">
+    <header>
+      <div class="header-container">
+        <div class="website-logo">
           <div class="logo-container">
             <img class="logo" src="../Assets/IMG/logo.svg" />
           </div>
           <div class="header-text">
             <h1>Kalkulator kalorii</h1>
-            <p>oblicz swoje dzienne zapotrzebowanie</p>
+            <p>Mifflin-St Jeor · BMR · TDEE</p>
           </div>
         </div>
+        <div class="navbar">
+          <span class="changeLang-container">
+            <button id="polishBtn">PL</button>
+            <button id="englishBtn">ENG</button>
+          </span>
+          <span><button id="changeThemeBtn">Tryb</button></span>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="main-container">
         <form>
           <div class="form-header">
             <img src="../Assets/IMG/osoba.svg" />
@@ -51,7 +83,7 @@
                 id="age"
                 name="age"
                 type="number"
-                placeholder="28lat"
+                placeholder="28 lat"
                 min="10"
                 max="100"
                 required
@@ -68,7 +100,7 @@
                 id="height"
                 name="height"
                 type="number"
-                placeholder="180cm"
+                placeholder="180 cm"
                 min="100"
                 max="250"
                 required
@@ -83,7 +115,7 @@
                 id="weight"
                 name="weight"
                 type="number"
-                placeholder="82kg"
+                placeholder="82 kg"
                 min="30"
                 max="350"
                 required
@@ -226,6 +258,17 @@
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="footer-container">
+        <div class="watermark">
+          <p>© 2025 Kalkulator kalorii · Wzór Mifflin-St Jeor</p>
+        </div>
+        <ul>
+          <li>Bez logowania</li>
+          <li>Open source</li>
+          <li>RODO</li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
