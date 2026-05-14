@@ -178,13 +178,13 @@ header {
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-
   padding: 0 20px;
-  height: 80px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* ✅ dodaj */
+  gap: 12px; /* ✅ dodaj */
+  min-height: 60px; /* ✅ zamiast height */
 }
 
 header .website-logo {
@@ -563,12 +563,12 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
 
-  padding: 0 20px;
-  height: 80px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 60px;
 }
 
 .big-text {
@@ -649,6 +649,39 @@ label {
 
 /* ── Telefony małe (360–479px) ── */
 @media (max-width: 479px) {
+  header,
+  footer {
+    padding: 16px;
+  }
+
+  .header-container,
+  .footer-container {
+    flex-direction: column;
+    min-height: unset;
+    gap: 12px;
+  }
+
+  .header-container {
+    align-items: flex-start;
+  }
+
+  .footer-container {
+    align-items: center;
+  }
+
+  .navbar {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .footer-container ul {
+    justify-content: flex-start;
+  }
+
+  .watermark p {
+    font-size: 0.75rem;
+  }
+
   .cards1-container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -703,6 +736,25 @@ label {
 
 /* ── Telefony (480–767px) ── */
 @media (min-width: 480px) and (max-width: 767px) {
+  header,
+  footer {
+    padding: 20px;
+  }
+
+  .header-container,
+  .footer-container {
+    flex-wrap: wrap;
+    min-height: unset;
+  }
+
+  .header-container {
+    align-items: flex-start;
+  }
+
+  .footer-container {
+    align-items: center;
+  }
+
   .main-container {
     gap: 1.5em;
     padding: 0 16px;

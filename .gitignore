@@ -1,0 +1,39 @@
+# ── Node.js ──────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# ── Środowisko ────────────────────────────
+.env
+.env.local
+.env.production
+
+# ── Testy / raporty ───────────────────────
+test-results/
+screenshots/
+*.png
+*.jpg
+!Assets/IMG/
+
+# ── Selenium / Playwright ─────────────────
+Assets/tests/*.side
+/test-results/
+/playwright-report/
+
+# ── Systemy operacyjne ────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── VS Code ───────────────────────────────
+.vscode/
+!.vscode/extensions.json
+
+# ── Mockupy (opcjonalnie odkomentuj) ──────
+mockup
+
+# ── Logi ─────────────────────────────────
+*.log
+logs/

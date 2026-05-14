@@ -1,0 +1,27 @@
+{
+  "name": "calorie-calculator",
+  "version": "1.0.0",
+  "description": "Prosty, szybki kalkulator kalorii jako **one-page** — bez logowania, bez rejestracji, bez backendu. Użytkownik wpisuje dane i natychmiast dostaje wyniki.",
+  "main": "index.js",
+  "scripts": {
+    "Test z WebDrivera": "node Assets/testscalculator_tests.js",
+    "Test z Selenium IDE ": "npx mocha test_ide.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaczmarczykaleks21-bot/Calorie-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kaczmarczykaleks21-bot/Calorie-calculator/issues"
+  },
+  "homepage": "https://github.com/kaczmarczykaleks21-bot/Calorie-calculator#readme",
+  "dependencies": {
+    "chromedriver": "^148.0.3",
+    "mocha": "^11.7.5",
+    "selenium-webdriver": "^4.44.0"
+  }
+}
