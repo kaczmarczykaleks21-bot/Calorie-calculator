@@ -1,3 +1,4 @@
+/* #region GLOBAL  */
 :root {
   /* ═══ DEFICYT — czerwony ═══ */
   --color-deficyt: #e24b4a; /* główny */
@@ -169,6 +170,10 @@ body {
   width: 100%;
 }
 
+/* #endregion */
+
+/* #region HEADER */
+
 header {
   width: 100%;
   padding: 30px;
@@ -182,9 +187,22 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* ✅ dodaj */
-  gap: 12px; /* ✅ dodaj */
-  min-height: 60px; /* ✅ zamiast height */
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: 60px;
+}
+
+.header {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-text h1,
+.header-text h2,
+.header-text h3,
+.header-text p {
+  margin: 0;
+  padding: 0;
 }
 
 header .website-logo {
@@ -192,6 +210,19 @@ header .website-logo {
   justify-content: center;
   align-items: center;
   gap: 1em;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 3rem;
+  width: auto;
+  display: block;
 }
 
 .navbar {
@@ -211,6 +242,10 @@ header .website-logo {
   border-radius: 12px;
 }
 
+/* #endregion */
+
+/* #region MAIN */
+
 main {
   display: flex;
   flex-direction: column;
@@ -229,42 +264,6 @@ main {
   max-width: 960px;
   padding: 0 16px;
   box-sizing: border-box;
-}
-
-main .website-logo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1em;
-}
-
-.header-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-}
-
-.logo-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.logo-container img {
-  height: 3rem;
-  width: auto;
-  display: block;
-}
-
-.header-text h1,
-.header-text h2,
-.header-text h3,
-.header-text p {
-  margin: 0;
-  padding: 0;
 }
 
 form {
@@ -465,7 +464,7 @@ hr {
   gap: 0.4em;
   flex: 1 1 calc(33.333% - 1em);
   min-width: 0;
-  padding: 10px;
+  padding: 12px;
 }
 
 .cards1-container,
@@ -492,7 +491,7 @@ hr {
   gap: 0.4em;
   flex: 1 1 calc(33.333% - 1em);
   min-width: 220px;
-  padding: 10px;
+  padding: 12px;
 }
 
 #goal-text {
@@ -553,6 +552,84 @@ hr {
   padding: 6px;
 }
 
+.results-footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4em;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2.5em;
+  background-color: var(--color-card-bg);
+  border: var(--color-border) 1px solid;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.faq-questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1em;
+  padding-bottom: 12px;
+}
+
+.faq-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+  width: 100%;
+  color: var(--color-text-mid);
+  font-weight: 600;
+}
+
+#faq-icon {
+  max-width: 22px;
+}
+
+summary {
+  color: var(--color-text-dark);
+  font-weight: 500;
+}
+
+summary:hover {
+  cursor: pointer;
+}
+
+.faq-container hr {
+  border-bottom: var(--color-border) 1px solid;
+}
+
+details p {
+  color: var(--color-text-mid);
+  font-weight: 300;
+}
+
+details ul {
+  color: var(--color-text-mid);
+  font-weight: 300;
+}
+
+/* #endregion */
+
+/* #region FOOTER */
+
 footer {
   width: 100%;
   padding: 30px;
@@ -583,7 +660,7 @@ footer {
   gap: 1em;
 }
 
-ul {
+footer ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -595,7 +672,7 @@ ul {
   gap: 1em;
 }
 
-li {
+footer ul li {
   color: var(--color-text-dark);
   font-weight: 550;
 }
@@ -604,6 +681,10 @@ li {
   color: var(--color-text-muted);
   font-weight: 500;
 }
+
+/* #endregion */
+
+/* #region TEXTS */
 
 h1,
 h2 {
@@ -625,28 +706,17 @@ label {
   font-weight: 400;
 }
 
-.hidden {
-  display: none;
-}
-
-.main-container {
-  width: 100%;
-}
-
-.header {
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .big-text {
   font-size: 1.2rem;
 }
 
-.cards1,
-.cards2 {
-  padding: 12px;
+/* #endregion */
+
+.hidden {
+  display: none;
 }
 
+/* #region MEDIA QUERY */
 /* ── Telefony małe (360–479px) ── */
 @media (max-width: 479px) {
   header,
@@ -934,3 +1004,5 @@ label {
     font-size: 1.4rem;
   }
 }
+
+/* #endregion */
