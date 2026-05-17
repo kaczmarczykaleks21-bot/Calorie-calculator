@@ -1,2 +1,6 @@
-const lang = navigator.language.startsWith('pl') ? 'PL' : 'ENG';
-window.location.replace('/' + lang + '/index.html');
+const host = window.location.hostname;
+if (host.includes('tdeetoday.com')) {
+  window.location.replace('/ENG/index.html');
+} else {
+  window.location.replace('/PL/index.html');
+}
