@@ -10,18 +10,11 @@ function calculate() {
   };
 
   const gender = document.querySelector('#gender').value;
-  const age = document.querySelector('#age').value;
-  const height = document.querySelector('#height').value;
-  const weight = document.querySelector('#weight').value;
+  const age = Number(document.querySelector('#age').value);
+  const height = Number(document.querySelector('#height').value);
+  const weight = Number(document.querySelector('#weight').value);
   const activity = document.querySelector('#activity').value;
   const goal = document.querySelector('#goal').value;
-
-  console.log(`Płeć: ${gender}`);
-  console.log(`Wiek: ${age}lat`);
-  console.log(`Wysokość: ${height}cm`);
-  console.log(`Waga: ${weight}kg`);
-  console.log(`Aktywność: ${activity}`);
-  console.log(`Cel: ${goal}`);
 
   // BMR
   let bmr;
@@ -83,6 +76,11 @@ function calculate() {
     fatsPct = 0.25;
     carbsPct = 0.45;
     yourGoal = 'rekompozycja (spalanie tłuszczu + budowa mięśni)';
+  }
+
+  if (!proteinPct) {
+    console.error('Nieznany cel:', goal);
+    return null;
   }
 
   const proteinGrams = (calories * proteinPct) / 4;
