@@ -16,7 +16,6 @@ themeToggle.addEventListener('change', () => {
   const next = themeToggle.checked ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
-  updateToggleText(next);
 });
 
 // ─── Zmiana języka ───
