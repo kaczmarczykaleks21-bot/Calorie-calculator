@@ -4,6 +4,11 @@ Prosty, szybki kalkulator kalorii jako **one-page** — bez logowania, bez rejes
 
 ---
 
+## Link do strony:
+
+Wersja po polsku: https://kalkulatortdee.pl/PL/
+Wersja po angielsku: https://tdeetoday.com/ENG/
+
 ## ✨ Funkcje
 
 - 📊 Obliczanie **BMR** (podstawowej przemiany materii) wzorem Mifflin-St Jeor
@@ -21,6 +26,8 @@ Prosty, szybki kalkulator kalorii jako **one-page** — bez logowania, bez rejes
 
 ```
 Calorie-calculator/
+├──index.html               ←  przekierowuje do odpowiedniej wersji językowej
+│
 ├── PL/
 │   └── index.html          ← wersja polska
 ├── ENG/
@@ -31,9 +38,9 @@ Calorie-calculator/
 │   ├── JS/
 │   │   ├── main.js         ← punkt wejścia, łączy moduły
 │   │   ├── calculator.js   ← logika obliczeń (BMR, TDEE, makro)
-│   │   ├── render.js         ← obsługa DOM, renderowanie wyników
-│   │   ├── theme.js        ← dark/light mode
-│   │   └── i18n.js         ← obsługa języków PL/EN
+│   │   ├── render.js       ← obsługa DOM, renderowanie wyników
+│   │   └── redirect.js     ← obsługa języków PL/EN (przekierowuje do odpowiedniej wersji językowej)
+│   │
 │   └── IMG/                ← ikonki SVG, obrazki
 └── mockup/                 ← pliki projektowe
 ```
@@ -105,15 +112,17 @@ Każdy moduł ma jedną odpowiedzialność:
 
 | Moduł           | Odpowiedzialność                                        |
 | --------------- | ------------------------------------------------------- |
-| `calculator.js` | Czysta logika — liczy liczby, zero DOM                  |
+| `calculator.js` | Czysta logika — liczy liczby,                           |
 | `render.js`     | Obsługa DOM — wszystkie ID i selektory w jednym miejscu |
-| `theme.js`      | Dark / Light mode                                       |
-| `i18n.js`       | Tłumaczenia PL / EN                                     |
-| `main.js`       | Łączy moduły, zero własnej logiki                       |
+| `redirect.js`   | Przekierowuje do odpowiedniej wersji językowej          |
+| `main.js`       | skrypt główny                                           |
 
 ```html
-<!-- W HTML ładujesz tylko jeden plik -->
+<!-- W HTML PL/index.html & ENG/index.html łąduje dwa skrypty -->
+<script src="/Assets/JS/init.js"></script>
 <script type="module" src="/Assets/JS/main.js"></script>
+<!-- W HTML index.html łąduje tlyko jeden skrypty -->
+<script src="/Assets/JS/redirect.js"></script>
 ```
 
 ---
@@ -122,13 +131,14 @@ Każdy moduł ma jedną odpowiedzialność:
 
 Strona automatycznie wykrywa język przeglądarki:
 
-```javascript
-const lang = navigator.language.startsWith('pl') ? 'pl' : 'en';
+```js
+const host = window.location.hostname;
+if (host.includes('tdeetoday.com')) {
+  window.location.replace('/ENG/index.html');
+} else {
+  window.location.replace('/PL/index.html');
+}
 ```
-
-Wybór użytkownika zapisywany w `localStorage` i respektowany przy kolejnych wizytach. Wersje językowe to osobne pliki HTML (`/PL/` i `/ENG/`) z tagami `hreflang` dla SEO.
-
----
 
 ## 🌙 Dark Mode
 
@@ -142,7 +152,15 @@ Automatyczne wykrycie preferencji systemu:
 }
 ```
 
-Ręczny przełącznik zapisuje wybór w `localStorage`. Skrypt inicjalizujący wstawiany jako **pierwszy element `<head>`** — eliminuje migotanie przy ładowaniu strony.
+```js
+// Plik init.js - wczytuje się przed html'em
+'use strict';
+
+const saved = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const theme = saved ?? (prefersDark ? 'dark' : 'light');
+document.documentElement.setAttribute('data-theme', theme);
+```
 
 ---
 
@@ -161,7 +179,7 @@ npx serve .
 python -m http.server 8080
 ```
 
-Otwórz `http://localhost:8080/PL/` w przeglądarce.
+Otwórz `http://localhost:8080/PL/` lub `http://localhost:8080/ENG/` w przeglądarce.
 
 > ⚠️ ES Modules nie działają po otwarciu pliku bezpośrednio (`file://`). Wymagany jest lokalny serwer HTTP.
 
