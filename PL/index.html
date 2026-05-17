@@ -27,16 +27,16 @@
     <link rel="alternate" hreflang="pl" href="https://kalkulatortdee.pl/PL/" />
     <link rel="alternate" hreflang="en" href="https://tdeetoday.com/ENG/" />
     <title>Kalkulator kalorii — zapotrzebowanie i makro</title>
-    <link rel="stylesheet" href="../Assets/CSS/main.css" />
-    <script src="../Assets/JS/init.js"></script>
-    <script src="../Assets/JS/main.js" type="module"></script>
+    <link rel="stylesheet" href="/Assets/CSS/main.css" />
+    <script src="/Assets/JS/init.js"></script>
+    <script src="/Assets/JS/main.js" type="module"></script>
   </head>
   <body>
     <header>
       <div class="header-container">
         <div class="website-logo">
           <div class="logo-container">
-            <img class="logo" src="../Assets/IMG/logo.svg" />
+            <img class="logo" src="/Assets/IMG/logo.svg" />
           </div>
           <div class="header-text">
             <h1>Kalkulator kalorii</h1>
@@ -63,14 +63,14 @@
       <div class="main-container">
         <form>
           <div class="form-header">
-            <img src="../Assets/IMG/osoba.svg" />
+            <img src="/Assets/IMG/osoba.svg" />
             <h3>Twoje dane</h3>
           </div>
           <div class="div-row">
             <!-- GENDER -->
             <div class="input-containers1">
               <label for="gender"
-                ><img src="../Assets/IMG/plec.svg" /> Płeć</label
+                ><img src="/Assets/IMG/plec.svg" /> Płeć</label
               >
               <select id="gender" name="gender" required>
                 <option value="">-- Wybierz --</option>
@@ -80,7 +80,7 @@
             </div>
             <!-- AGE  -->
             <div class="input-containers1">
-              <label for="age"><img src="../Assets/IMG/wiek.svg" /> Wiek</label>
+              <label for="age"><img src="/Assets/IMG/wiek.svg" /> Wiek</label>
               <input
                 id="age"
                 name="age"
@@ -96,7 +96,7 @@
             <!-- HEGHT -->
             <div class="input-containers1">
               <label for="height"
-                ><img src="../Assets/IMG/wzrost.svg" /> Wzrost</label
+                ><img src="/Assets/IMG/wzrost.svg" /> Wzrost</label
               >
               <input
                 id="height"
@@ -111,7 +111,7 @@
             <!-- WEIGHT -->
             <div class="input-containers1">
               <label for="weight"
-                ><img src="../Assets/IMG/waga.svg" /> Waga</label
+                ><img src="/Assets/IMG/waga.svg" /> Waga</label
               >
               <input
                 id="weight"
@@ -128,7 +128,7 @@
             <!-- ACTIVITY -->
             <div class="input-containers2">
               <label for="activity"
-                ><img src="../Assets/IMG/aktywnosc.svg" /> Aktywność</label
+                ><img src="/Assets/IMG/aktywnosc.svg" /> Aktywność</label
               >
               <select id="activity" name="activity" required>
                 <option value="">-- Wybierz --</option>
@@ -151,7 +151,7 @@
             </div>
             <!-- GOAL -->
             <div class="input-containers2">
-              <label for="goal"><img src="../Assets/IMG/cel.svg" /> Cel</label>
+              <label for="goal"><img src="/Assets/IMG/cel.svg" /> Cel</label>
               <select id="goal" name="goal" required>
                 <option value="">-- Wybierz --</option>
                 <option value="lose_weight">
@@ -166,7 +166,7 @@
             </div>
             <div class="btn-container">
               <button id="calculateBtn" type="submit">
-                <img src="../Assets/IMG/oblicz.svg" /> Oblicz zapotrzebowanie
+                <img src="/Assets/IMG/oblicz.svg" /> Oblicz zapotrzebowanie
               </button>
             </div>
           </div>
@@ -175,14 +175,14 @@
         <div id="goToResults" class="results-container">
           <div class="caloricalgoals-container">
             <div class="caloricalgoals-header">
-              <img src="../Assets/IMG/wyniki.svg" />
+              <img src="/Assets/IMG/wyniki.svg" />
               <h3>Cele kaloryczne</h3>
             </div>
             <div class="cards1-container">
               <div id="lose-card" class="cards1">
                 <span>
                   <span id="deficitIcon-container"
-                    ><img src="../Assets/IMG/deficyt.svg"
+                    ><img src="/Assets/IMG/deficyt.svg"
                   /></span>
                 </span>
                 <span>Deficyt</span>
@@ -190,13 +190,13 @@
                 <span>kcal / dzień</span>
               </div>
               <div id="maintain-card" class="cards1">
-                <span><img src="../Assets/IMG/utrzymanie.svg" /></span>
+                <span><img src="/Assets/IMG/utrzymanie.svg" /></span>
                 <span>Utrzymanie</span>
                 <span id="maintain" class="big-text">Brak danych</span>
                 <span>kcal / dzień</span>
               </div>
               <div id="gain-card" class="cards1">
-                <span><img src="../Assets/IMG/wzrost2.svg" /></span>
+                <span><img src="/Assets/IMG/wzrost2.svg" /></span>
                 <span>Wzrost</span>
                 <span id="gain" class="big-text">Brak danych</span>
                 <span>kcal / dzień</span>
@@ -205,7 +205,7 @@
           </div>
           <div class="macroElements-container">
             <div class="macroElements-header">
-              <img src="../Assets/IMG/makroskladniki.svg" />
+              <img src="/Assets/IMG/makroskladniki.svg" />
               <h3>
                 Makroskładniki Cel: <span id="goal-text">(brak celu)</span>
               </h3>
@@ -214,7 +214,7 @@
               <div id="proteins-card" class="cards2">
                 <span>
                   <span id="proteinsIcon-container">
-                    <img src="../Assets/IMG/bialko.svg" />
+                    <img src="/Assets/IMG/bialko.svg" />
                   </span>
                   Białko
                 </span>
@@ -224,7 +224,7 @@
               <div id="carbs-card" class="cards2">
                 <span
                   ><span id="carbsIcon-container"
-                    ><img src="../Assets/IMG/weglowodany.svg"
+                    ><img src="/Assets/IMG/weglowodany.svg"
                   /></span>
                   Węgle</span
                 >
@@ -234,7 +234,7 @@
               <div id="fats-card" class="cards2">
                 <span
                   ><span id="fatsIcon-container"
-                    ><img src="../Assets/IMG/tluszcze.svg"
+                    ><img src="/Assets/IMG/tluszcze.svg"
                   /></span>
                   Tłuszcze</span
                 >
@@ -260,7 +260,7 @@
         </div>
         <div class="faq-container">
           <div class="faq-header">
-            <img src="../Assets/IMG/faq.svg" id="faq-icon" />
+            <img src="/Assets/IMG/faq.svg" id="faq-icon" />
             <span>Często zadawane pytania</span>
           </div>
           <div class="faq-questions">
