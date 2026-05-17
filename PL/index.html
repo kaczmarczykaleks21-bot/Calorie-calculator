@@ -12,7 +12,10 @@
     <meta property="og:url" content="https://twojadomena.pl/pl/" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' fonts.googleapis.com; font-src fonts.gstatic.com;"
+      content="default-src 'self'; 
+           script-src 'self'; 
+           style-src 'self' fonts.googleapis.com; 
+           font-src fonts.gstatic.com;"
     />
     <link rel="canonical" href="https://twojadomena.pl/PL/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,20 +27,8 @@
     <link rel="alternate" hreflang="pl" href="https://twojadomena.pl/PL/" />
     <link rel="alternate" hreflang="en" href="https://twojadomena.pl/ENG/" />
     <title>Kalkulator kalorii — zapotrzebowanie i makro</title>
-    <script>
-      localStorage.setItem('lang', 'pl');
-      (function () {
-        const saved = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia(
-          '(prefers-color-scheme: dark)',
-        ).matches;
-
-        const theme = saved || (prefersDark ? 'dark' : 'light');
-
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
-    </script>
     <link rel="stylesheet" href="../Assets/CSS/main.css" />
+    <script src="../Assets/JS/init.js"></script>
     <script src="../Assets/JS/main.js" type="module"></script>
   </head>
   <body>
@@ -57,7 +48,14 @@
             <button id="polishBtn">PL</button>
             <button id="englishBtn">ENG</button>
           </span>
-          <span><button id="changeThemeBtn">Tryb</button></span>
+          <div class="change-theme">
+            <input type="checkbox" id="theme-toggle" class="hidden" />
+            <label class="toggle-label" for="theme-toggle">
+              <div class="toggle-track">
+                <div class="toggle-thumb" id="toggle-icon"></div>
+              </div>
+            </label>
+          </div>
         </div>
       </div>
     </header>

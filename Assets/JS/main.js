@@ -1,94 +1,37 @@
 'use strict';
-console.log('main.js');
 
 import { calculate } from './calculator.js';
 import { render } from './render.js';
 
 const form = document.querySelector('form');
-const changeThemeBtn = document.getElementById('changeThemeBtn');
-const lang = localStorage.getItem('lang');
-let isDark;
+const themeToggle = document.getElementById('theme-toggle');
+const toggleText = document.getElementById('toggle-text');
 
-function setNavbarBtns() {
-  const root = document.documentElement;
-  const current = root.getAttribute('data-theme');
+// ─── Synchronizacja checkboxa z aktualnym motywem ───
+const currentTheme = document.documentElement.getAttribute('data-theme');
+themeToggle.checked = currentTheme === 'dark';
 
-  if (lang === 'pl') {
-    if (current === 'dark') {
-      changeThemeBtn.textContent = 'Tryb jasny';
-    }
+// ─── Zmiana motywu ───
+themeToggle.addEventListener('change', () => {
+  const next = themeToggle.checked ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateToggleText(next);
+});
 
-    if (current === 'light') {
-      changeThemeBtn.textContent = 'Tryb ciemny';
-    }
-  }
-
-  if (lang === 'en') {
-    if (current === 'dark') {
-      changeThemeBtn.textContent = 'Light mode';
-    }
-
-    if (current === 'light') {
-      changeThemeBtn.textContent = 'Dark mode';
-    }
-  }
-}
-setNavbarBtns();
-
-// LANG
-const polishBtn = document.getElementById('polishBtn');
-const englishBtn = document.getElementById('englishBtn');
-
-polishBtn.addEventListener('click', () => {
+// ─── Zmiana języka ───
+document.getElementById('polishBtn').addEventListener('click', () => {
   window.location.href = '/PL/index.html';
 });
 
-englishBtn.addEventListener('click', () => {
+document.getElementById('englishBtn').addEventListener('click', () => {
   window.location.href = '/ENG/index.html';
 });
 
-changeThemeBtn.addEventListener('click', () => {
-  const root = document.documentElement;
-  const current = root.getAttribute('data-theme');
-
-  const next = current === 'dark' ? 'light' : 'dark';
-
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-
-  if (lang === 'pl') {
-    if (next === 'dark') {
-      changeThemeBtn.textContent = 'Tryb jasny';
-    }
-
-    if (next === 'light') {
-      changeThemeBtn.textContent = 'Tryb ciemny';
-    }
-  }
-
-  if (lang === 'en') {
-    if (next === 'dark') {
-      changeThemeBtn.textContent = 'Light mode';
-    }
-
-    if (next === 'light') {
-      changeThemeBtn.textContent = 'Dark mode';
-    }
-  }
-});
-
-// CALCULATE
+// ─── Formularz ───
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-
   const results = calculate();
   render(results);
-
-  const resultsSection = document.querySelector('#goToResults');
-
-  resultsSection.scrollIntoView({
-    behavior: 'smooth',
-  });
+  document.querySelector('#goToResults').scrollIntoView({ behavior: 'smooth' });
 });
-
-changeThemeBtn.addEventListener('click', () => {});
